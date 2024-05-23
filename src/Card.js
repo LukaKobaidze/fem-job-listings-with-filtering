@@ -7,13 +7,10 @@ function Card({
   labelNew,
   labelFeatured,
   position,
-  role,
-  level,
   postedAt,
   contract,
   location,
-  languages,
-  tools,
+  tags,
   addTagHandler,
 }) {
   return (
@@ -47,20 +44,12 @@ function Card({
         </div>
       </div>
       <div className='card__tags'>
-        <Tag name={role} addTagHandler={() => addTagHandler('role', role)} />
-        <Tag name={level} addTagHandler={() => addTagHandler('level', level)} />
-        {languages.map((language) => (
+
+        {tags.map((tag) => (
           <Tag
-            key={language}
-            name={language}
-            addTagHandler={() => addTagHandler('languages', language)}
-          />
-        ))}
-        {tools.map((tool) => (
-          <Tag
-            key={tool}
-            name={tool}
-            addTagHandler={() => addTagHandler('tools', tool)}
+            key={tag}
+            name={tag}
+            addTagHandler={() => addTagHandler(tag)}
           />
         ))}
       </div>

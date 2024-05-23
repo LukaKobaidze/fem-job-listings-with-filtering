@@ -1,4 +1,5 @@
 import Card from './Card';
+import { getJobTags } from './FilterableCards';
 
 function ListCards({ cards, addTagHandler }) {
   return (
@@ -12,13 +13,10 @@ function ListCards({ cards, addTagHandler }) {
             labelNew={card.new}
             labelFeatured={card.featured}
             position={card.position}
-            role={card.role}
-            level={card.level}
             postedAt={card.postedAt}
             contract={card.contract}
             location={card.location}
-            languages={card.languages}
-            tools={card.tools}
+            tags={getJobTags(card)}
             addTagHandler={addTagHandler}
           />
         ))}

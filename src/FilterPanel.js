@@ -1,44 +1,16 @@
 import Filter from './Filter';
 
-const FilterPanel = ({
-  role,
-  level,
-  languages,
-  tools,
-  removeTagHandler,
-  resetTagsHandler,
-}) => {
+const FilterPanel = ({ filter, removeTagHandler, resetTagsHandler }) => {
   return (
     <div className="container filter__panel">
       <div className="filter">
         <div className="card__tags">
-          {role && (
-            <Filter
-              name={role}
-              removeTagHandler={() => removeTagHandler('role', role)}
-            ></Filter>
-          )}
-          {level && (
-            <Filter
-              name={level}
-              removeTagHandler={() => removeTagHandler('level', level)}
-            ></Filter>
-          )}
-
-          {languages.length > 0 &&
-            languages.map((language) => (
+          {filter.length > 0 &&
+            filter.map((tag) => (
               <Filter
-                key={language}
-                name={language}
-                removeTagHandler={() => removeTagHandler('languages', language)}
-              />
-            ))}
-          {tools.length > 0 &&
-            tools.map((tool) => (
-              <Filter
-                key={tool}
-                name={tool}
-                removeTagHandler={() => removeTagHandler('tools', tool)}
+                key={tag}
+                name={tag}
+                removeTagHandler={() => removeTagHandler(tag)}
               />
             ))}
         </div>
